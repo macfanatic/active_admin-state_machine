@@ -9,7 +9,7 @@ This gem provides you with a DSL extension to ActiveAdmin that allows you to eas
 * Integration with ActiveAdmin authorization adapater layer - the button won't show if the user isn't authorized
 * Provide custom permission to authorize against
 * Provide confirmation message to prompt user before performing
-* Button only shown if state_machine can transition* 
+* Button only shown if state_machine can transition
 * Localizable button titles and flash messages
 * Pass a block to customize the behavior
 
@@ -18,7 +18,7 @@ This gem provides you with a DSL extension to ActiveAdmin that allows you to eas
 This gem requires both `active_admin` and `state_machine`.  Add the gem to your Gemfile to get started and bundle.
 
 ```ruby
-gem 'active_admin-state-machine`
+gem 'active_admin-state-machine'
 ```
 
 ## Usage
@@ -75,7 +75,7 @@ In the above example, the `state_action` method is defined by this gem and provi
 1. The `:peer_review` is assumed to be an event in your state_machine definition on the Post model.
 2. Calling `state_action` will add an action item button to your ActiveAdmin resource on the `#show` page, if the user is authorized to perform this action via the ActiveAdmin authorization adapter, and if the resource itself returns true to `#can_peer_review?`, which is provided by default with this event in state_machine.
 3. Clicking the button will call `#peer_review!` on the resource, and redirect you back to `smart_resource_url`.
-4. Fully localizable, provide translations for `"posts.peer_review.label""`for the button title and `"posts.peer_review.flash.success""` for the flash message when completed.
+4. Fully localizable, provide translations for `"posts.peer_review.label"`for the button title and `"posts.peer_review.flash.success` for the flash message when completed.
 5. You can pass a block to customize this behavior.
 
 ### Custom Block
