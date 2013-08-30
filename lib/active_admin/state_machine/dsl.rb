@@ -17,12 +17,27 @@ module ActiveAdmin
         plural = config.resource_name.plural
 
         options[:permission] ||= controller.new.send(:action_to_permission, action)
+        confirmation = options.fetch(:confirm, false)
+        if confirmation == true
+          default = "Are you sure you want to #{action.to_s.humanize.downcase}?"
+          confirmation = ->{ I18n.t(:confirm, scope: "#{plural}.#{action}", default: default) }
+        end
         
         action_item only: :show do
           if resource.send("can_#{action}?") && authorized?(options[:permission], resource)
             path = resource_path << "/#{action}"
             label = I18n.t("#{plural}.#{action}.label", default: action.to_s.titleize)
-            link_to label, path, method: :put, class: "btn btn-large"
+
+            link_options = {}
+            if confirmation.is_a?(Proc)
+              link_options[:data] ||= {}
+              link_options[:data][:confirm] = instance_exec(&confirmation)
+            end
+
+            link_options[:class] = "btn btn-large"
+            link_options[:method] = :put
+
+            link_to label, path, link_options
           end
         end
 

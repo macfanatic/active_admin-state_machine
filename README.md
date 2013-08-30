@@ -87,7 +87,7 @@ ActiveAdmin.register Post do
   
   # Block to be called when submitted
   state_action :publish do
-  	PostPublicationService.publish!(resource)
+    PostPublicationService.publish!(resource)
     flash[:notice] = "Post published"
     redirect_to collection_path
   end
@@ -114,7 +114,7 @@ ActiveAdmin.register Post do
   state_action :peer_review, confirm: :true
   
   # Pass proc
-  state_action :peer_review, confirm: ->{ I18n.t("posts.peer_review.prompt") }
+  state_action :peer_review, confirm: ->{ I18n.t("posts.peer_review.confirm") }
 end
 ```
 

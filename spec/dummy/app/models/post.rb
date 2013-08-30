@@ -9,6 +9,7 @@ class Post < ActiveRecord::Base
   DRAFT = 'draft'
   REVIEWED = 'reviewed'
   PUBLISHED = 'published'
+  ARCHIVED = 'archived'
 
   state_machine :status, initial: DRAFT do
     event :peer_review do
@@ -17,6 +18,10 @@ class Post < ActiveRecord::Base
 
     event :publish do
       transition REVIEWED => PUBLISHED
+    end
+
+    event :archive do
+      transition any => ARCHIVED
     end
   end
 end
