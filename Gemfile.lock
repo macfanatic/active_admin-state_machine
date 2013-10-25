@@ -63,6 +63,9 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    capybara-webkit (1.0.0)
+      capybara (~> 2.0, >= 2.0.2)
+      json
     coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -202,6 +205,7 @@ DEPENDENCIES
   active_admin-state_machine!
   cancan
   capybara
+  capybara-webkit
   coffee-rails (~> 3.2.1)
   database_cleaner
   factory_girl_rails

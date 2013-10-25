@@ -4,5 +4,7 @@
 en:
   posts:
     publish:
-      label: "Publish Post"
-      confirm: "Do you want to publish now?"
+      label: Publish Post
+      confirm: Do you want to publish now?
+      flash:
+        success: Post successfully published

@@ -21,7 +21,11 @@ class Post < ActiveRecord::Base
     end
 
     event :archive do
-      transition any => ARCHIVED
+      transition any - ARCHIVED => ARCHIVED
+    end
+
+    event :reopen do
+      transition any - DRAFT => DRAFT
     end
   end
 end

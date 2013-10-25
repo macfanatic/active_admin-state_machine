@@ -14,20 +14,22 @@ require 'rspec/autorun'
 require 'shoulda-matchers'
 require 'capybara/rails'
 require 'capybara/rspec'
+require 'capybara/webkit'
 require 'database_cleaner'
 require 'factory_girl_rails'
 
+Capybara.default_selector = :css
+Capybara.javascript_driver = :webkit
 Rails.backtrace_cleaner.remove_silencers!
 
 # Load support files
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 
-DatabaseCleaner.strategy = :transaction
+DatabaseCleaner.strategy = :truncation
 
 RSpec.configure do |config|
   config.run_all_when_everything_filtered = true
   config.mock_with :rspec
-  config.use_transactional_fixtures = true
   config.infer_base_class_for_anonymous_controllers = false
 
 
@@ -39,6 +41,10 @@ RSpec.configure do |config|
 
   config.include Warden::Test::Helpers, type: :feature
   config.include FactoryGirl::Syntax::Methods # Defines #create as FactoryGirl.create
+
+  config.before :each do
+    DatabaseCleaner.clean_with :truncation
+  end
 
   config.after(:each, :type => :feature) do
     DatabaseCleaner.clean       # Truncate the database
