@@ -12,6 +12,7 @@ Gem::Specification.new do |s|
   s.homepage    = "https://github.com/macfanatic/active_admin-state_machine"
   s.summary     = "Provides easy DSL integration between ActiveAdmin & state_machine"
   s.description = "Provides easy DSL integration between ActiveAdmin & state_machine"
+  s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["spec/**/*"]
