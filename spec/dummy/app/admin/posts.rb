@@ -6,7 +6,7 @@ ActiveAdmin.register Post do
   state_action :archive, confirm: ->{ "Do you want to archive?" }
 
   # No I18n for confirm message
-  state_action :reopen, confirm: true do
+  state_action :reopen, confirm: true, http_verb: :get do
     redirect_to admin_dashboard_path
   end
 

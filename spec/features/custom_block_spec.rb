@@ -15,4 +15,11 @@ feature "Custom Block" do
     current_path.should == admin_dashboard_path
     post.should be_reviewed
   end
+
+  scenario 'respects :http_verb provided' do
+    login_and_navigate_to_post admin, post
+
+    link = find(".action_item a", text: "Reopen")
+    link['data-method'].should == 'get'
+  end
 end
