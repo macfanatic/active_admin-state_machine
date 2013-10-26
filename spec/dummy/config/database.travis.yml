@@ -1,0 +1,4 @@
+test:
+  adapter: postgresql
+  database: aa_state_machine_test
+  username: postgres

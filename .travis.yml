@@ -1,4 +1,4 @@
-script: bundle exec rspec spec
+script: xvfb-run bundle exec rspec spec
 rvm:
   - 1.9.3
   - 2.0.0
@@ -6,3 +6,8 @@ before_install:
   - gem update --system
   - gem --version
   - gem install bundler
+before_script:
+  - psql -c 'create database aa_state_machine_test;' -U postgres
+  - cp spec/dummy/config/database.travis.yml spec/dummy/config/database.yml
+  - RAILS_ENV=test cd spec/dummy && bundle exec rake db:setup
+  - cd ../../

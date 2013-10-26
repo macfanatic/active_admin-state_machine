@@ -4,14 +4,51 @@
 # loaded once.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+
+$LOAD_PATH.unshift(File.dirname(__FILE__))
+ENV['RAILS_ENV'] ||= 'test'
+
+require File.expand_path("../dummy/config/environment.rb",  __FILE__)
+require 'rspec/rails'
+require 'rspec/autorun'
+require 'shoulda-matchers'
+require 'capybara/rails'
+require 'capybara/rspec'
+require 'capybara/webkit'
+require 'database_cleaner'
+require 'factory_girl_rails'
+
+Capybara.default_selector = :css
+Capybara.javascript_driver = :webkit
+Rails.backtrace_cleaner.remove_silencers!
+
+# Load support files
+Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
+
+DatabaseCleaner.strategy = :truncation
+
 RSpec.configure do |config|
-  config.treat_symbols_as_metadata_keys_with_true_values = true
   config.run_all_when_everything_filtered = true
-  config.filter_run :focus
+  config.mock_with :rspec
+  config.infer_base_class_for_anonymous_controllers = false
+
 
   # Run specs in random order to surface order dependencies. If you find an
   # order dependency and want to debug it, you can fix the order by providing
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = 'random'
+
+  config.include Warden::Test::Helpers, type: :feature
+  config.include FactoryGirl::Syntax::Methods # Defines #create as FactoryGirl.create
+
+  config.before :each do
+    DatabaseCleaner.clean_with :truncation
+  end
+
+  config.after(:each, :type => :feature) do
+    DatabaseCleaner.clean       # Truncate the database
+    Capybara.reset_sessions!    # Forget the (simulated) browser state
+    Capybara.use_default_driver # Revert Capybara.current_driver to Capybara.default_driver
+  end
 end

@@ -8,6 +8,7 @@ module ActiveAdmin
       # @param [Symbol] state machine event, ie: :publish
       # @param [Hash] options
       #   - permission [Symbol] permission to check authorization against
+      #   - http_verb [Symbol] :put, :post, :get, etc
       #
       # Will call "resource.publish!", if "resource.can_publish?" returns true
       #
@@ -22,6 +23,8 @@ module ActiveAdmin
           default = "Are you sure you want to #{action.to_s.humanize.downcase}?"
           confirmation = ->{ I18n.t(:confirm, scope: "#{plural}.#{action}", default: default) }
         end
+
+        http_verb = options.fetch :http_verb, :put
         
         action_item only: :show do
           if resource.send("can_#{action}?") && authorized?(options[:permission], resource)
@@ -35,7 +38,7 @@ module ActiveAdmin
             end
 
             link_options[:class] = "btn btn-large"
-            link_options[:method] = :put
+            link_options[:method] = http_verb
 
             link_to label, path, link_options
           end
@@ -49,7 +52,7 @@ module ActiveAdmin
           end
         end
 
-        member_action action, method: :put, &controller_action
+        member_action action, method: http_verb, &controller_action
       end
 
     end
