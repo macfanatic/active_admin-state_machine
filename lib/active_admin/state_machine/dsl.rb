@@ -25,8 +25,8 @@ module ActiveAdmin
         end
 
         http_verb = options.fetch :http_verb, :put
-        
-        action_item only: :show do
+
+        action_item action.to_sym only: :show do
           if resource.send("can_#{action}?") && authorized?(options[:permission], resource)
             path = resource_path << "/#{action}"
             label = I18n.t("#{plural}.#{action}.label", default: action.to_s.titleize)
