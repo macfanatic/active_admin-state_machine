@@ -2,7 +2,7 @@ FactoryGirl.define do
   factory :category do
     sequence(:name) { |n| "Category #{n}" }
 
-    ignore do
+    transient do
       num_posts 0
     end
 
