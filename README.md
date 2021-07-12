@@ -1,6 +1,6 @@
 # ActiveAdmin-StateMachine
 
-This gem provides an easy integration between the awesome [state_machine](https://github.com/pluginaweek/state_machine) and [active_admin](https://github.com/gregbell/active_admin) gems.
+This gem provides an easy integration between the awesome [state_machine](https://github.com/pluginaweek/state_machine) and [active_admin](https://github.com/activeadmin/activeadmin) gems.
 
 ## Features
 
@@ -55,7 +55,7 @@ end
 
 ```
 ActiveAdmin.register Post do
-  
+
   state_action :peer_review
   state_action :publish
 
@@ -82,9 +82,9 @@ In the above example, the `state_action` method is defined by this gem and provi
 
 ```
 ActiveAdmin.register Post do
-  
+
   state_action :peer_review
-  
+
   # Block to be called when submitted
   state_action :publish do
     PostPublicationService.publish!(resource)
@@ -112,7 +112,7 @@ ActiveAdmin.register Post do
 
   # Lookup 'posts.peer_review.prompt'
   state_action :peer_review, confirm: :true
-  
+
   # Pass proc
   state_action :peer_review, confirm: ->{ I18n.t("posts.peer_review.confirm") }
 end
@@ -123,11 +123,11 @@ end
 If you really want to use without a state_machine on your model, you essentially just need to provide the following methods, contining with our `:peer_review` example:
 
 ```
-class Post < ActiveRecord::Base    
+class Post < ActiveRecord::Base
   def can_peer_review?
     author.present? && !published?
   end
-  
+
   def peer_review!
     self.published_at = Time.now
     save!
