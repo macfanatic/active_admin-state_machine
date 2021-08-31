@@ -27,8 +27,9 @@ Gem::Specification.new do |s|
   s.add_development_dependency "pg"
   s.add_development_dependency "rspec-rails"
   s.add_development_dependency "shoulda-matchers"
-  s.add_development_dependency "capybara"
-  s.add_development_dependency "capybara-webkit"
+  s.add_development_dependency "capybara", '~> 3.35'
+  s.add_development_dependency 'selenium-webdriver', '~> 3.142'
+  s.add_development_dependency "webdrivers", '~> 4.6'
   s.add_development_dependency "database_cleaner"
   s.add_development_dependency "factory_girl_rails"
   s.add_development_dependency "devise", "~> 4.0"

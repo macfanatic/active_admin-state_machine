@@ -14,12 +14,9 @@ require 'rspec/autorun'
 require 'shoulda-matchers'
 require 'capybara/rails'
 require 'capybara/rspec'
-require 'capybara/webkit'
 require 'database_cleaner'
 require 'factory_girl_rails'
 
-Capybara.default_selector = :css
-Capybara.javascript_driver = :webkit
 Rails.backtrace_cleaner.remove_silencers!
 
 # Load support files

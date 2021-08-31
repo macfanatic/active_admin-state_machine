@@ -13,6 +13,7 @@ gemspec
 # your gem to rubygems.org.
 
 gem 'cancancan'
+gem 'sass-rails'
 
 # To use a debugger
 gem 'byebug', group: [:development, :test]
