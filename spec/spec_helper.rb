@@ -14,7 +14,7 @@ require 'shoulda-matchers'
 require 'capybara/rails'
 require 'capybara/rspec'
 require 'database_cleaner'
-require 'factory_girl_rails'
+require 'factory_bot_rails'
 
 Rails.backtrace_cleaner.remove_silencers!
 
@@ -36,7 +36,7 @@ RSpec.configure do |config|
   config.order = 'random'
 
   config.include Warden::Test::Helpers, type: :feature
-  config.include FactoryGirl::Syntax::Methods # Defines #create as FactoryGirl.create
+  config.include FactoryBot::Syntax::Methods # Defines #create as FactoryBot.create
 
   config.before :each do
     DatabaseCleaner.clean_with :truncation

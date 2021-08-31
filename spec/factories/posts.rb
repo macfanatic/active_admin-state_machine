@@ -1,11 +1,13 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :post do
     sequence(:title) { |n| "Post #{n}" }
-    body "lorem ipsum"
+    body { 'lorem ipsum' }
     category
 
+    status { :draft }
+
     trait :reviewed do
-      status Post::REVIEWED
+      status { :reviewed }
     end
   end
 end
