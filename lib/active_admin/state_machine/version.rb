@@ -2,6 +2,6 @@
 
 module ActiveAdmin
   module StateMachine
-    VERSION = '0.2.0'
+    VERSION = '1.0.0.pre1'
   end
 end
