@@ -1,6 +1,6 @@
 def post_should_have_status(status)
   within ".attributes_table" do
-    page.should have_content(status)
+    expect(page).to have_content(status)
   end
 end
 
@@ -11,12 +11,12 @@ end
 
 def has_action_item(item)
   within ".action_items" do
-    page.should have_link(item)
+    expect(page).to have_link(item)
   end
 end
 
 def has_no_action_item(item)
   within ".action_items" do
-    page.should_not have_link(item)
-  end  
+    expect(page).to_not have_link(item)
+  end
 end
