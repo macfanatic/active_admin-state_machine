@@ -1,6 +1,8 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
-# Declare your gem's dependencies in active_admin-state_machine.gemspec.
+ruby IO.read(File.expand_path('../.ruby-version', __FILE__))
+
+# Declare your gem's dependencies in thrift_trac.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and
 # development dependencies will be added by default to the :development group.
 gemspec
