@@ -13,6 +13,9 @@ Gem::Specification.new do |s|
   s.summary     = "Provides easy DSL integration between ActiveAdmin & state_machine"
   s.description = "Provides easy DSL integration between ActiveAdmin & state_machine"
   s.license     = "MIT"
+  s.metadata = {
+    'changelog_uri' => 'https://github.com/macfanatic/active_admin-state_machine/blob/master/CHANGELOG.md'
+  }
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["spec/**/*"]
