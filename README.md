@@ -2,6 +2,11 @@
 
 This gem provides an easy integration between the awesome [state_machine](https://github.com/pluginaweek/state_machine) and [active_admin](https://github.com/activeadmin/activeadmin) gems.
 
+## Dependencies
+* [rails](https://github.com/rails/rails) 6.0+
+* [active_admin](https://github.com/activeadmin/activeadmin) 2.x
+* [state_machine](https://github.com/pluginaweek/state_machine) 1.2
+
 ## Features
 
 This gem provides you with a DSL extension to ActiveAdmin that allows you to easily define action item buttons for your resource to transition through your state_machine.

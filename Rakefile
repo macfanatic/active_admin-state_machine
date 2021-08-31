@@ -8,6 +8,9 @@ end
 APP_RAKEFILE = File.expand_path("../spec/dummy/Rakefile", __FILE__)
 Bundler::GemHelper.install_tasks
 
+# engine rake tasks
+load 'rails/tasks/engine.rake'
+
 require 'rspec/core'
 require 'rspec/core/rake_task'
 

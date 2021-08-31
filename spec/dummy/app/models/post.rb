@@ -1,6 +1,4 @@
 class Post < ActiveRecord::Base
-  attr_accessible :body, :status, :title
-
   belongs_to :category
 
   validates :title, presence: true, uniqueness: true
