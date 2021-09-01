@@ -17,8 +17,15 @@ Gem::Specification.new do |s|
     'changelog_uri' => 'https://github.com/macfanatic/active_admin-state_machine/blob/master/CHANGELOG.md'
   }
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
-  s.test_files = Dir["spec/**/*"]
+  s.files = Dir["lib/**/*"]
+  s.extra_rdoc_files = Dir["README.md", "CHANGELOG.md", "MIT-LICENSE"]
+  s.rdoc_options += [
+    "--title", "ActiveAdmin StateMachine Integration",
+    "--main", "README.md",
+    "--line-numbers",
+    "--inline-source",
+    "--quiet"
+  ]
 
   s.add_dependency "rails", '~> 6.0'
   s.add_dependency "activeadmin", "~> 2.0"
