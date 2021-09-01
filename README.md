@@ -139,3 +139,46 @@ class Post < ActiveRecord::Base
   end
 end
 ```
+
+## Development
+Included is a dummy rails 6 application that includes some basic ability management, a few models and the ActiveAdmin UI.
+
+This is used in the test suite for integration testing, but is also usable if you're interested in using yourself.
+
+### Setup
+First fork the repo and clone to your machine for development.
+
+Then setup the rails app for development.
+
+```
+$> bundle install
+$> rails db:setup
+```
+
+This will run the `seeds.rb` file from the dummy application, creating 2 users that can be used to login to the development server.
+
+- `admin@example.com`
+- `super@example.com`
+
+The password is `password` for both, and abilitys are defined in `cancancan` for the dummy site.
+
+### Starting Server
+To start the development rails server
+
+```
+$> bundle install
+$> bin/rails s
+$> open http://localhost:3000/admin
+```
+
+Login with the credentials from `seeds.rb` mentioned above.
+
+### Test Suite
+The test suite can be run via rspec.
+
+```
+$> bundle exec rspec spec
+```
+
+### Contributing
+Please ensure that any pull requests pass the test suite locally before submitting a PR.
