@@ -27,7 +27,7 @@ Gem::Specification.new do |s|
     "--quiet"
   ]
 
-  s.add_dependency "rails", '~> 6.0'
+  s.add_dependency "rails", '~> 7.0'
   s.add_dependency "activeadmin", "~> 2.0"
   s.add_dependency "state_machine"
 
