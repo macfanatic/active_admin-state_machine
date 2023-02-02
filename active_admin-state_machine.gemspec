@@ -38,7 +38,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency "puma"
   s.add_development_dependency "rspec-rails"
   s.add_development_dependency "shoulda-matchers"
-  s.add_development_dependency "capybara", '~> 3.38'
+  s.add_development_dependency "capybara", '~> 3.35'
   s.add_development_dependency 'selenium-webdriver', '~> 4.6'
   s.add_development_dependency "webdrivers", '~> 4.6'
   s.add_development_dependency "database_cleaner"
