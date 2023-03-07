@@ -14,6 +14,7 @@ gemspec
 
 gem 'cancancan'
 gem 'sass-rails'
+gem 'rails', '>= 7.0'
 
 # To use a debugger
 gem 'byebug', group: [:development, :test]
