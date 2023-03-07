@@ -27,7 +27,7 @@ Gem::Specification.new do |s|
     "--quiet"
   ]
 
-  s.add_dependency "rails", '~> 6.0'
+  s.add_dependency "rails", '>= 6.0'
   s.add_dependency "activeadmin", "~> 2.0"
   s.add_dependency "state_machine"
 
@@ -35,10 +35,11 @@ Gem::Specification.new do |s|
   s.add_development_dependency "sqlite3"
   s.add_development_dependency 'listen'
   s.add_development_dependency "pg"
+  s.add_development_dependency "puma"
   s.add_development_dependency "rspec-rails"
   s.add_development_dependency "shoulda-matchers"
   s.add_development_dependency "capybara", '~> 3.35'
-  s.add_development_dependency 'selenium-webdriver', '~> 3.142'
+  s.add_development_dependency 'selenium-webdriver', '~> 4.6'
   s.add_development_dependency "webdrivers", '~> 4.6'
   s.add_development_dependency "database_cleaner"
   s.add_development_dependency "factory_bot_rails"
